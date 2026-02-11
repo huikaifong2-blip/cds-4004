@@ -85,7 +85,8 @@
             		});
 				    li.addEventListener('click', function() {
                 		if (confirm(`Strike thru current task?`)) {
-                    	this.remove();
+                    	//this.remove();
+						this.style.textDecoration = 'line-through';
                 		}
             		});
 					//li.style.color = "var(--task-cat" + "result[i][1])";
