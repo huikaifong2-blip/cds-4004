@@ -12,6 +12,9 @@
 		--icy-aqua: #b8f2e6ff;
 		--light-blue: #aed9e0ff;
 		--blue-slate: #5e6472ff;
+		--task-cat1: red;
+		--task-cat2: black;
+		--task-cat3: grey;
 		}
 
 		body {
@@ -56,6 +59,7 @@
 			//let splitArray = array.map(item => item.split(",").trim()).map(part => part.trim());
 			let result = array.map(item =>item.split(",").map(part => part.trim()));
 			console.log(result);
+			console.log("textboxValue.length:" + textboxValue.length
 			for (let i = 0; i < textboxValue.length; i++) {
 				//if (textboxValue[i].length == 2) {
 					let item = "* " + textboxValue[i][0] + ", " + textboxValue[i][1]
@@ -67,7 +71,7 @@
 				["Exercise", "2"],
 				["Study", "3"]
 			];
-
+			console.log("nestedArray.length:" + nestedArray.length
 			for (let i = 0; i < nestedArray.length; i++) {
     			for (let j = 0; j < nestedArray[i].length; j++) {
         			console.log("#"+nestedArray[i][j]);
