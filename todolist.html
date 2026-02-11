@@ -59,10 +59,10 @@
 			//let splitArray = array.map(item => item.split(",").trim()).map(part => part.trim());
 			let result = array.map(item =>item.split(",").map(part => part.trim()));
 			console.log(result);
-			console.log("textboxValue.length:" + textboxValue.length);
-			for (let i = 0; i < textboxValue.length; i++) {
+			console.log("result.length:" + result.length);
+			for (let i = 0; i < result.length; i++) {
 				//if (textboxValue[i].length == 2) {
-					let item = "* " + textboxValue[i][0] + ", " + textboxValue[i][1]
+					let item = "* " + result[i][0] + ", " + result[i][1]
 					console.log(item)
 				//}
 			}
@@ -71,10 +71,10 @@
 				["Exercise", "2"],
 				["Study", "3"]
 			];
-			console.log("textboxValue.length:" + textboxValue.length);
-			for (let i = 0; i < textboxValue.length; i++) {
-    			for (let j = 0; j < textboxValue[i].length; j++) {
-        			console.log("#"+textboxValue[i][j]);
+			console.log("result.length:" + result.length);
+			for (let i = 0; i < result.length; i++) {
+    			for (let j = 0; j < result[i].length; j++) {
+        			console.log("#"+result[i][j]);
     			}
 			}
 		}
