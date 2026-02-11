@@ -48,10 +48,6 @@
 
 	<ol id='order_list'>
       <li><data value="21053">data tag</data></li>  
-      <li><data value="23452">data tag</data></li> 
-      <li><data value="42545">data tag</data></li>  
-      <li>List item</li> 
-      <li>List item</li>  
       <li>List item</li> 
 	</ol>	
 </body>
@@ -73,10 +69,12 @@
 				
 					let ol = document.getElementById('order_list');
 					let li = document.createElement('li');
-				
+
+					li.style.color = "--task-cat" + result[i][1]
 					let data = document.createElement('data');
 					data.textContent = result[i][0];
-					data.value = result[i][1];
+					//data.value = result[i][1];
+					data.color = result[i][1];
 
 					li.appendChild(data);
 					ol.appendChild(li);
