@@ -52,7 +52,7 @@
 			let textboxValue = document.getElementById('text').value;
 			console.log(textboxValue);
 			let array = textboxValue.split(";");
-			let splitArray = array.map(item => item.split(",").trim());
+			let splitArray = array.map(item => item.split(",").trim()).map(part => part.trim());
 			console.log(array);
 		}
 	</script>
