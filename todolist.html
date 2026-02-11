@@ -62,7 +62,7 @@
 			allItems.forEach(item => {
 				//const hasLineThrough = window.getComputedStyle(item).textDecoration.includes('line-through');
 				//if (hasLineThrough) {
-				if (item.style.textDecoration === 'line-through') {
+				if (item.style.textDecoration == 'line-through') {
 					if (item.style.display == 'none') {
 						item.style.display = 'list-item';
 					} else {
@@ -108,9 +108,9 @@
                     	//this.remove();
 						//this.style.textDecoration = 'line-through';
 						/*
-						if (this.style.textDecoration === 'line-through') {
+						if (this.style.textDecoration == 'line-through') {
         					//console.log('Already has line-through');
-							this.style.textDecorationLine === ''
+							this.style.textDecorationLine = ''
     					} else {
         					this.style.textDecoration = 'line-through';
     					}
