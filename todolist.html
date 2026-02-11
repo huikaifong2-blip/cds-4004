@@ -57,6 +57,15 @@
 </body>
 
 	<script>
+		function hideCompleted() {
+			const allItems = document.querySelectorAll('#order_list li');
+			allItems.forEach(item => {
+				const hasLineThrough = window.getComputedStyle(item).textDecoration.includes('line-through');
+				if (hasLineThrough) {
+					item.style.display = 'none';
+		        }
+   			});
+		}
 		function init() {
 			let textboxValue = document.getElementById('text').value;
 			console.log("@" + textboxValue);
