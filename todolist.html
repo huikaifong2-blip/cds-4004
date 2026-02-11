@@ -79,7 +79,12 @@
 
 					li.appendChild(data);
 				    li.addEventListener('dblclick', function() {
-                		if (confirm(`Delete "${this.dataset.task}"?`)) {
+                		if (confirm(`Delete current task "' + result[i][0] + '"?`)) {
+                    	this.remove();
+                		}
+            		});
+				    li.addEventListener('click', function() {
+                		if (confirm(`Strike thru current task?`)) {
                     	this.remove();
                 		}
             		});
