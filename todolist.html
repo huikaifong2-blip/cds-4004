@@ -138,6 +138,7 @@
 		}
 		function addTasks() {
 			let textboxValue = document.getElementById('text').value;
+			if (textboxValue.trim().length > 0) {
 			console.log("@" + textboxValue);
 			let array = textboxValue.split(";");
 			console.log(array);
@@ -205,6 +206,7 @@
 			}
 			*/
 			document.getElementById('text').value = '';
+			}
 		}
 	</script>
 </html>
