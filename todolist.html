@@ -88,7 +88,10 @@
                     	this.remove();
                 		}
             		});
-					li.style.color = "var(--task-cat" + "result[i][1])";
+					//li.style.color = "var(--task-cat" + "result[i][1])";
+					let color-code = "var(--task-cat"+ result[i][1] + ")";
+					console.log(color-code);
+				    li.style.setProperty('color', color-code);
 					ol.appendChild(li);
 				
 					//ol.appendChild(li);
