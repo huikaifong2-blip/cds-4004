@@ -17,9 +17,9 @@
 		--task-cat3: #0000ffff;
 		}
 
-		//.completed {
-		//	text-decoration: line-through;
-		//}
+		.completed {
+			text-decoration: line-through;
+		}
 
 		body {
 			background-color: var(--eggshell);
@@ -89,16 +89,18 @@
                 		}
             		});
 				    li.addEventListener('click', function() {
-						//this.classList.toggle('completed');
+						this.classList.toggle('completed');
                 		//if (confirm(`Strike thru current task?`)) {
                     	//this.remove();
 						//this.style.textDecoration = 'line-through';
+						/*
 						if (this.style.textDecoration === 'line-through') {
         					//console.log('Already has line-through');
 							this.style.textDecorationLine === ''
     					} else {
         					this.style.textDecoration = 'line-through';
     					}
+						*/
             		});
 					//li.style.color = "var(--task-cat" + "result[i][1])";
 					let colorCode = "var(--task-cat"+ result[i][1] + ")";
