@@ -79,7 +79,8 @@
 
 					li.appendChild(data);
 				    li.addEventListener('dblclick', function() {
-                		if (confirm(`Delete current task "' + result[i][0] + '"?`)) {
+                		//if (confirm(`Delete current task "' + result[i][0] + '"?`)) {
+						if (confirm(`Delete current task "${result[i][0]}"?`)) {
                     	this.remove();
                 		}
             		});
