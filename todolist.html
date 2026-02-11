@@ -50,8 +50,9 @@
 	<script>
 		function init() {
 			let textboxValue = document.getElementById('text').value;
-			alert(textboxValue);
+			console.log(textboxValue);
 			let array = textboxValue.split(";");
+			let splitArray = array.map(item => item.split(",").trim());
 			console.log(array);
 		}
 	</script>
