@@ -60,8 +60,9 @@
 		function hideCompleted() {
 			const allItems = document.querySelectorAll('#order_list li');
 			allItems.forEach(item => {
-				const hasLineThrough = window.getComputedStyle(item).textDecoration.includes('line-through');
-				if (hasLineThrough) {
+				//const hasLineThrough = window.getComputedStyle(item).textDecoration.includes('line-through');
+				//if (hasLineThrough) {
+				if (this.style.textDecoration === 'line-through') {
 					if (item.style.display == 'none') {
 						item.style.display = 'list-item';
 					} else {
