@@ -91,12 +91,12 @@
     		//align-items: center;      /* Centers vertically */
     		gap: 100px;               /* Space between buttons */
     		//height: 100vh;           /* Full viewport height for vertical centering */
-			margin: 15px;
+			margin: 10px;
 		}
 		
 		textarea {
 		  width:100%;
-		  margin: 15px;
+		  margin: 10px;
 		}
 
 		li {
@@ -110,7 +110,7 @@
 	<textarea id='text' rows="3" >Dinner, 1; Exercise, 2; Study, 3</textarea> 
 	<br/>
 	<div class='divButton'>
-		<button id='btn_add' onclick="init()">Add</button>
+		<button id='btn_add' onclick="addTasks()">Add</button>
 		<button id='btn_hide' onclick="hideCompleted()">Toggle</button>
 	</div>
 
@@ -135,7 +135,7 @@
 		        }
    			});
 		}
-		function init() {
+		function addTasks() {
 			let textboxValue = document.getElementById('text').value;
 			console.log("@" + textboxValue);
 			let array = textboxValue.split(";");
@@ -203,6 +203,7 @@
     			}
 			}
 			*/
+			document.getElementById('text').value = '';
 		}
 	</script>
 </html>
