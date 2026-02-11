@@ -12,9 +12,9 @@
 		--icy-aqua: #b8f2e6ff;
 		--light-blue: #aed9e0ff;
 		--blue-slate: #5e6472ff;
-		--task-cat1: red;
-		--task-cat2: black;
-		--task-cat3: grey;
+		--task-cat1: #ff0000ff;
+		--task-cat2: #000000ff;
+		--task-cat3: #888888ff;
 		}
 
 		body {
@@ -88,7 +88,7 @@
                     	this.remove();
                 		}
             		});
-					li.style.color = red;
+					li.style.color = "--task-cat"+result[i][1];
 					ol.appendChild(li);
 				
 					//ol.appendChild(li);
