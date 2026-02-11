@@ -73,8 +73,15 @@
 				
 					let ol = document.getElementById('order_list');
 					let li = document.createElement('li');
-					li.textContent = item;
+				
+					let data = document.createElement('data');
+					data.textContent = result[i][0];
+					data.value = result[i][1];
+
+					li.appendChild(data);
 					ol.appendChild(li);
+				
+					//ol.appendChild(li);
 				//}
 			}
 			let nestedArray = [
