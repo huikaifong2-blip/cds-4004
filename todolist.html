@@ -62,6 +62,17 @@
 					console.log(item)
 				//}
 			}
+			let nestedArray = [
+    			["Dinner", "1"],
+				["Exercise", "2"],
+				["Study", "3"]
+			];
+
+			for (let i = 0; i < nestedArray.length; i++) {
+    			for (let j = 0; j < nestedArray[i].length; j++) {
+        			console.log("#"+nestedArray[i][j]);
+    			}
+			}
 		}
 	</script>
 </html>
