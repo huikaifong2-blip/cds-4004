@@ -49,9 +49,12 @@
 
 	<script>
 		// write your Javascript here
-		let textboxValue = document.getElementById('text').value;
-		alert(textboxvalue);
-
+		
+		document.addEventListener('DOMContentLoaded', init);
+		function init() {
+			let textboxValue = document.getElementById('text').value;
+			alert(textboxvalue);
+		}
 	</script>
 </html>
 
