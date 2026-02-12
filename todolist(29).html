@@ -151,6 +151,7 @@
 			console.log("result.length:" + result.length);
 			for (let i = 0; i < result.length; i++) {
 				//if (textboxValue[i].length == 2) {
+				if (result[i][0].trim().length > 0) {    //**********************************
 					let item = "* " + result[i][0] + ", " + result[i][1];
 					console.log(item)
 				
@@ -193,7 +194,8 @@
 					ol.appendChild(li);
 				
 					//ol.appendChild(li);
-				//}
+				}     //**********************************
+				//}	
 			}
 			/*
 			let nestedArray = [
