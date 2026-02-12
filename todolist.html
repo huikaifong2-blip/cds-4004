@@ -24,7 +24,8 @@
   		border-radius: 100px;
   		box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
   		//color: green;
-  		color: var(--blue-slate);
+  		//color: var(--blue-slate);
+		color: var(--powder-blush);
   		cursor: pointer;
   		display: inline-block;
   		font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
@@ -77,7 +78,7 @@
 
 		body {
 			background-color: var(--eggshell);
-  			color: var(--blue-slate);
+  			color: var(--icy-aqua);
 		}
 		
 		.button {
@@ -98,6 +99,7 @@
 		  font-size: 25px;
 		  width:100%;
 		  margin: 10px;
+		  color: var(--eggshell);
 		}
 
 		li {
@@ -109,7 +111,7 @@
 </head>
 
 <body>
-	<textarea id='text' rows="3" placeholder="Please enter <task description>,<category code: 1, 2 or 3>">Dinner, 1; Exercise, 2; Study, 3</textarea> 
+	<textarea id='text' rows="3" placeholder="Please enter <task description>,<category code: 1, 2 or 3>"> </textarea> 
 	<br/>
 	<div class='divButton'>
 		<button id='btn_add' onclick="addTasks()" title="Add a task">Add</button>
