@@ -120,9 +120,9 @@
 	<div class='divButton'>
 		<button id='btn_add' onclick="addTasks()" title="Add task(s)">Add</button>
 		<button id='btn_hide' onclick="hideCompleted()" title="Show/Hide completed task(s)">Toggle</button>
-		<!--
-		//<button id='btn_email onclikc="sendList()" title="Send ToDo List via email">Email</button>
-		-->
+		
+		<button id='btn_email onclick="sendList()" title="Send ToDo List via email">Email</button>
+		
 	</div>
 
 	<ol id='order_list'>
@@ -222,6 +222,12 @@
 			document.getElementById('text').value = '';
 			}
 			document.getElementById('text').focus();
+		}
+
+		function sendList(){
+			if (confirm(`Send ToDo List to xxx?`)) {
+            	alert("ToDo List is sent to xxx"); 
+            }
 		}
 	</script>
 </html>
