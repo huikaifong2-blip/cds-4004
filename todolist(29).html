@@ -140,7 +140,7 @@
 			const allItems = document.querySelectorAll('#order_list li');
 			// Check if there are completed task(s) unhidden
 			let unhiddenCount = 0;
-			/*
+			
 			allItems.forEach(item => {
 				const hasLineThrough = window.getComputedStyle(item).textDecoration.includes('line-through');
 				if (hasLineThrough) {	
@@ -148,8 +148,8 @@
 						unhiddenCount += 1;
 					}
 				}
-			}
-			*/
+			});
+			
 			//If there is at least one completed task unidden, hide all completed tasks
 			allItems.forEach(item => {
 				const hasLineThrough = window.getComputedStyle(item).textDecoration.includes('line-through');
