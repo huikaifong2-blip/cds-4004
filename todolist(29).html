@@ -125,6 +125,8 @@
 		
 	</div>
 
+	<p></p>
+	
 	<ol id='order_list'>
 
 	</ol>	
@@ -225,8 +227,9 @@
 		}
 
 		function sendList(){
-			if (confirm(`Send ToDo List to xxx?`)) {
-            	alert("ToDo List is sent to xxx"); 
+			let emailAddr = "kaifonghui@ln.hk"
+			if (confirm(`Send ToDo List to #{emailAddr}?`)) {
+            	alert("ToDo List is sent to #{emailAddr}"); 
             }
 		}
 	</script>
