@@ -5,7 +5,7 @@
 	<style>	
 		/*write your css rules here*/
 
-		/* COLORS */
+		/* COLOR PALETTE */
 		:root {
 		--powder-blush: #ffa69eff;
 		--eggshell: #faf3ddff;
@@ -112,8 +112,8 @@
 	<textarea id='text' rows="3" placeholder="Please enter <task description>,<category code: 1, 2 or 3>">Dinner, 1; Exercise, 2; Study, 3</textarea> 
 	<br/>
 	<div class='divButton'>
-		<button id='btn_add' onclick="addTasks()">Add</button>
-		<button id='btn_hide' onclick="hideCompleted()">Toggle</button>
+		<button id='btn_add' onclick="addTasks()" title="Add an item">Add</button>
+		<button id='btn_hide' onclick="hideCompleted()" title="Show/hide completed tasks">Toggle</button>
 	</div>
 
 	<ol id='order_list'>
