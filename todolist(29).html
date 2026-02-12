@@ -104,6 +104,7 @@
 		  font-size: 25px;
 		  width:100%;
 		  margin: 10px;
+		  background-color: var(--eggshell);
 		}
 
 		li {
@@ -261,7 +262,7 @@
 				items.forEach((item, i) => toDoList += `${i+1}. ${item.textContent}, ${item.style.color.charAt(item.style.color.length - 2)}\n`);
 			    window.location.href = `mailto:${emailAddr}?subject=${encodeURIComponent("ToDo List")}&body=${encodeURIComponent(toDoList)}`;
 				//alert(`mailto:${emailAddr}?subject=${encodeURIComponent("ToDo List")}&body=${encodeURIComponent(toDoList)}`);
-				alert('ToDo List is sent to '+emailAddr + '.'); 
+				//alert('ToDo List is sent to '+emailAddr + '.'); 
 			}
 		}
 	</script>
