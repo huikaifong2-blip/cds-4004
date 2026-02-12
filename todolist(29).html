@@ -257,7 +257,8 @@
 			if (confirm('Send ToDo List to ' + emailAddr + '?')) {
 			    const items = document.querySelectorAll('#order_list li');
 			    let toDoList = "ToDo List:\n\n";
-			    items.forEach((item, i) => toDoList += `${i+1}. ${item.textContent}\n`);
+			    //items.forEach((item, i) => toDoList += `${i+1}. ${item.textContent}\n`);
+				items.forEach((item, i) => toDoList += `${i+1}. ${item.textContent}, ${i+1}. ${item.color}\n`);
 			    window.location.href = `mailto:${emailAddr}?subject=${encodeURIComponent("ToDo List")}&body=${encodeURIComponent(toDoList)}`;
 				//alert(`mailto:${emailAddr}?subject=${encodeURIComponent("ToDo List")}&body=${encodeURIComponent(toDoList)}`);
 				alert('ToDo List is sent to '+emailAddr + '.'); 
