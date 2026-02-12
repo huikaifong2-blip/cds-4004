@@ -1,20 +1,26 @@
 <html lang="en">
 <!-- feel free to revise this file -->
+<!--
+	CDS4004 - Assignment 1: ToDo List
+	by HUI, Kai Fong (4126668)
+-->
 
 <head>
 	<style>	
 		/*write your css rules here*/
 
-		/* COLOR PALETTE */
+		/* COLORS PALETTE */
 		:root {
-		--powder-blush: #ffa69e;
-		--eggshell: #faf3dd;
-		--icy-aqua: #b8f2e6;
-		--light-blue: #aed9e0;
-		--blue-slate: #5e6472;
-		--task-cat1: #ff0000;
-		--task-cat2: #000000;
-		--task-cat3: #808080;
+		--powder-blush: #ffa69eff;
+		--eggshell: #faf3ddff;
+		--icy-aqua: #b8f2e6ff;
+		--light-blue: #aed9e0ff;
+		--blue-slate: #5e6472ff;
+		--task-cat1: #ff0000ff;  //red for task cat 1
+		//--task-cat2: #00ff00ff;
+			--task-cat2: #000000ff;  //black for task cat 2
+		//--task-cat3: #0000ffff;
+			--task-cat3: #808080ff;  //grey for task cat 3
 		}
 
 	button {
@@ -25,7 +31,6 @@
   		box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
   		//color: green;
   		color: var(--blue-slate);
-		//color: var(--powder-blush);
   		cursor: pointer;
   		display: inline-block;
   		font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
@@ -78,8 +83,8 @@
 
 		body {
 			//background-color: var(--eggshell);
-  			background-color: var(--icy-aqua);
-			color: var(--blue-slate);
+			background-color: var(--icy-aqua);
+  			color: var(--blue-slate);
 		}
 		
 		.button {
@@ -106,21 +111,27 @@
 		li {
 			font-size: 30px;
 			//border-left-width: 10px;
-			color: var(--blue-slate);
 		}
 		
 	</style>
 </head>
 
 <body>
-	<textarea id='text' rows="3" placeholder="Please enter <task description>,<category code: 1, 2 or 3>"> </textarea> 
+	<h2>CDS4004 - Assignment 1: ToDo List</h2>
+	<h3>by HUI, Kai Fong (4126668)</h3>
+	
+	<textarea id='text' rows="3" placeholder='Please enter task(s) in format <task content>,<task category (1,2, or 3)> delimited by ";"'> </textarea> 
 	<br/>
 	<div class='divButton'>
-		<button id='btn_add' onclick="addTasks()" title="Add a task">Add</button>
-		<button id='btn_hide' onclick="hideCompleted()" title="Show/hide completed tasks">Toggle</button>
-		<button id='btn_email' onclick="mailList()" title="Email ToDo list">Send</button>
+		<button id='btn_add' onclick="addTasks()" title="Add task(s)">Add</button>
+		<button id='btn_hide' onclick="hideCompleted()" title="Show/Hide completed task(s)">Toggle</button>
+		
+		<button id='btn_email' onclick="sendList()" title="Send ToDo List via email">Email</button>
+		
 	</div>
 
+	<br/>
+	
 	<ol id='order_list'>
 
 	</ol>	
@@ -129,11 +140,27 @@
 	<script>
 		function hideCompleted() {
 			const allItems = document.querySelectorAll('#order_list li');
+			// Check if there are completed task(s) unhidden
+			let unhiddenCount = 0;
+			let hiddenCount = 0;
+			
+			allItems.forEach(item => {
+				const hasLineThrough = window.getComputedStyle(item).textDecoration.includes('line-through');
+				if (hasLineThrough) {	
+					if (item.style.display == 'none') {
+						unhiddenCount += 1;
+					} else {
+						hiddenCount += 1;
+					}
+				}
+			});
+			bothExist = (unhiddenCount > 0) && (hiddenCount > 0)
+			//If there exist both hidden and unhidden completed tasks, hide all completed tasks
 			allItems.forEach(item => {
 				const hasLineThrough = window.getComputedStyle(item).textDecoration.includes('line-through');
 				if (hasLineThrough) {
 				//if (item.style.textDecoration.include('line-through')) {
-					if (item.style.display == 'none') {
+					if (item.style.display == 'none' && !bothExist) {
 						item.style.display = 'list-item';
 					} else {
 						item.style.display = 'none';
@@ -154,6 +181,7 @@
 			console.log("result.length:" + result.length);
 			for (let i = 0; i < result.length; i++) {
 				//if (textboxValue[i].length == 2) {
+				if (result[i][0].trim().length > 0) {   //task with empty descrption is skipped
 					let item = "* " + result[i][0] + ", " + result[i][1];
 					console.log(item)
 				
@@ -167,7 +195,7 @@
 					//data.value = result[i][1];
 					data.color = result[i][1];
 
-					data.title = "Double click to delete / single click to toggle completion status"; 
+					data.title = "Double click to delete task / Single click to toggle completion status";
 
 					li.appendChild(data);
 				    li.addEventListener('dblclick', function() {
@@ -198,7 +226,8 @@
 					ol.appendChild(li);
 				
 					//ol.appendChild(li);
-				//}
+				}  //task with empty descrption is skipped
+				//}	
 			}
 			/*
 			let nestedArray = [
@@ -217,9 +246,25 @@
 			}
 			document.getElementById('text').focus();
 		}
-		emailList() {
-			console.log("Email ToDo List");
+/*
+		function sendList(){
+			let emailAddr = "kaifonghui@ln.hk"
+			if (confirm('Send ToDo List to ' + emailAddr + '?')) {
+            	alert('ToDo List is sent to '+emailAddr + '.'); 
+            }
+		}
+*/
+		function sendList() {
+			let emailAddr = "kaifonghui@ln.hk"
+			if (confirm('Send ToDo List to ' + emailAddr + '?')) {
+			    const items = document.querySelectorAll('#order_list li');
+			    let toDoList = "ToDo List:\n\n";
+			    //items.forEach((item, i) => toDoList += `${i+1}. ${item.textContent}\n`);
+				items.forEach((item, i) => toDoList += `${i+1}. ${item.textContent}, ${item.style.color.charAt(item.style.color.length - 2)}\n`);
+			    window.location.href = `mailto:${emailAddr}?subject=${encodeURIComponent("ToDo List")}&body=${encodeURIComponent(toDoList)}`;
+				//alert(`mailto:${emailAddr}?subject=${encodeURIComponent("ToDo List")}&body=${encodeURIComponent(toDoList)}`);
+				//alert('ToDo List is sent to '+emailAddr + '.'); 
+			}
 		}
 	</script>
 </html>
-
